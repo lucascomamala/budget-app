@@ -1,12 +1,12 @@
 class LogsController < ApplicationController
   before_action :set_log, only: %i[ show edit update destroy ]
 
-  # GET /logs or /logs.json
+  # GET /logs
   def index
     @logs = Log.all
   end
 
-  # GET /logs/1 or /logs/1.json
+  # GET /logs/1
   def show
   end
 
@@ -19,42 +19,29 @@ class LogsController < ApplicationController
   def edit
   end
 
-  # POST /logs or /logs.json
+  # POST /logs
   def create
     @log = Log.new(log_params)
-
-    respond_to do |format|
-      if @log.save
-        format.html { redirect_to log_url(@log), notice: "Log was successfully created." }
-        format.json { render :show, status: :created, location: @log }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @log.errors, status: :unprocessable_entity }
-      end
+    if @log.save
+      redirect_to log_url(@log), notice: "Log was successfully created."
+    else
+      render :new, status: :unprocessable_entity
     end
   end
 
-  # PATCH/PUT /logs/1 or /logs/1.json
+  # PATCH/PUT /logs/1
   def update
-    respond_to do |format|
-      if @log.update(log_params)
-        format.html { redirect_to log_url(@log), notice: "Log was successfully updated." }
-        format.json { render :show, status: :ok, location: @log }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @log.errors, status: :unprocessable_entity }
-      end
+    if @log.update(log_params)
+      redirect_to log_url(@log), notice: "Log was successfully updated."
+    else
+      render :edit, status: :unprocessable_entity
     end
   end
 
-  # DELETE /logs/1 or /logs/1.json
+  # DELETE /logs/1
   def destroy
     @log.destroy
-
-    respond_to do |format|
-      format.html { redirect_to logs_url, notice: "Log was successfully destroyed." }
-      format.json { head :no_content }
-    end
+    redirect_to logs_url, notice: "Log was successfully destroyed." 
   end
 
   private
