@@ -1,2 +1,24 @@
 @import "bootstrap";
 @import "rails_bootstrap_forms";
+
+:root {
+  --main: #3778c2;
+  --second: #5fb523;
+  --text: #434b54;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Georgia, sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
