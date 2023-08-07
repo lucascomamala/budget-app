@@ -315,6 +315,7 @@ DEPENDENCIES
   rails-controller-testing
   rspec-rails
   rubocop (>= 1.0, < 2.0)
+  sassc-rails
   selenium-webdriver
   sprockets-rails
   stimulus-rails
