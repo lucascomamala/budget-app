@@ -1,26 +1,36 @@
-<h2>Log in</h2>
+<nav class="nav-bar d-flex justify-content-between align-items-center">
+  <div id="back-button" class="ms-3">&larr;</div>
+  <div>LOGIN</div>
+  <div id="next-button" class="me-3">NEXT</div>
+</nav>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
-    </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
+<%= bootstrap_form_for(resource, as: resource_name, url: session_path(resource_name), html: { id: 'registration-form', class: 'login-form mt-3 fw-light' }) do |f| %>
+  <%= f.email_field :email, autofocus: true, autocomplete: "email", label_as_placeholder: true %>
+  <%= f.password_field :password, autocomplete: "current-password", label_as_placeholder: true %>
+  <span class="d-flex justify-content-center">
+    <%= f.submit "Log In", class: 'mt-2' %>
+  </span>
 <% end %>
+<div class='text-center'>
+<%= link_to "Forgot password?", new_password_path(resource_name) %><br />
+</div>
+<%= render "devise/shared/error_messages", resource: resource %>
 
-<%= render "devise/shared/links" %>
+
+<%# TODO: Fix NEXT button, allow it to submit the form %>
+<script>
+  function initializeRegistration() {
+    const nextButton = document.getElementById("next-button");
+    const form = document.getElementById("registration-form");
+    
+    nextButton.addEventListener("click", function() {
+      form.submit();
+    });
+  }
+
+  document.addEventListener("turbolinks:load", function() {
+    initializeRegistration();
+  });
+</script>
+
+
