@@ -47,6 +47,7 @@ a {
 .login-form {
   div {
     margin-bottom: 0 !important;
+    
     input {
       padding-top: 0.75rem;
       padding-bottom: 0.75rem;
@@ -54,7 +55,7 @@ a {
       border-radius: 0%;
     }
   }
-  
+
   div:first-of-type {
     input {
       border-top: 1px solid #ced4da; /* Replace with the desired border color */
