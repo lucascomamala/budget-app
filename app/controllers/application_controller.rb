@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   before_action :update_allowed_parameters, if: :devise_controller?
 
   # User needs to be signed in to interact with any and all app features
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:splash]
 
   protected
 

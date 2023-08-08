@@ -1,6 +1,8 @@
 @import "bootstrap";
 @import "rails_bootstrap_forms";
 
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap');
+
 :root {
   --main: #3778c2;
   --second: #5fb523;
@@ -15,10 +17,25 @@ body {
 }
 
 body {
-  font-family: Georgia, sans-serif;
+  font-family: 'Montserrat', sans-serif;
+  color: var(--text);
 }
 
 a {
   text-decoration: none;
-  color: black;
+  color: var(--text);
+}
+
+.splash-logo {
+  width: fit-content;
+}
+
+.btn-splash {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+
+.btn-login {
+  background-color: var(--main);
+
 }
