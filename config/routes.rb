@@ -1,7 +1,13 @@
 Rails.application.routes.draw do
   devise_for :users
   
-  root 'static_pages#splash'
+  # Non-authenticated users root path
+  root to: 'static_pages#splash', constraints: ->(request) { !request.env['warden'].authenticated?(:user) }
+
+  # Authenticated users root path
+  authenticated :user do
+    root 'groups#index', as: :authenticated_user
+  end
 
   resources :groups
   resources :logs
