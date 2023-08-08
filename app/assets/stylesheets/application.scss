@@ -65,13 +65,15 @@ a {
 .flash-messages-container {
   position: fixed;
   top: 0;
-  left: 0;
-  right: 0;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
   padding: 1rem;
   z-index: 1000; /* Adjust the z-index as needed */
+  pointer-events: none; /* Prevent interaction with messages */
 }
 
 [data-flash-type] {
