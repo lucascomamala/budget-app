@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>BudgetApp</title>
+    <title>1 Budget</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -13,16 +13,16 @@
   <body>
     <% flash.each do |type, msg| %>
       <% if type == 'notice' %>
-        <div class="mx-5 alert alert-success" role="alert">
+        <div class="mx-5 mt-3 alert alert-success" role="alert">
           <%= msg %>
         </div>
       <% elsif type == 'alert' %>
-        <div class="mx-5 alert alert-danger" role="alert">
+        <div class="mx-5 mt-3 alert alert-danger" role="alert">
           <%= msg %>
         </div>
       <% end %>
     <% end %>
-    
+
     <%= yield %>
   </body>
 </html>
