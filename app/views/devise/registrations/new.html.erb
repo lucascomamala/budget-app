@@ -1,0 +1,36 @@
+<nav class="nav-bar d-flex justify-content-between align-items-center">
+  <span id="back-button" class="material-symbols-outlined ms-2"><%= link_to 'arrow_back', root_path, class: 'text-white' %></span>
+  <span>REGISTER</span>
+  <span id="next-button" class="me-3">NEXT</span>
+</nav>
+
+<%= bootstrap_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { id: 'registration-form', class: 'login-form mt-3 fw-light' }) do |f| %>
+  <%= f.text_field :name, autofocus: true, label_as_placeholder: true %>
+  <%= f.email_field :email, autocomplete: "email", label_as_placeholder: true %>
+  <%= f.password_field :password, autocomplete: "new-password", label_as_placeholder: true %>
+  <%= f.password_field :password_confirmation, autocomplete: "new-password", label_as_placeholder: true %>
+  <span class="d-flex justify-content-center">
+    <%= f.submit "Sign up", class: 'mt-2' %>
+  </span>
+<% end %>
+
+<%= render "devise/shared/error_messages", resource: resource %>
+
+
+<%# TODO: Fix NEXT button, allow it to submit the form %>
+<script>
+  function initializeRegistration() {
+    const nextButton = document.getElementById("next-button");
+    const form = document.getElementById("registration-form");
+    
+    nextButton.addEventListener("click", function() {
+      form.submit();
+    });
+  }
+
+  document.addEventListener("turbolinks:load", function() {
+    initializeRegistration();
+  });
+</script>
+
+

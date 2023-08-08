@@ -1,16 +1,37 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>BudgetApp</title>
+    <title>1 Budget</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />    
   </head>
 
   <body>
+    <% flash.each do |type, msg| %>
+      <% if type == 'notice' %>
+        <div class="flash-messages-container">
+          <div class="alert alert-success hide-flash" role="alert" data-flash-type="notice">
+            <%= msg %>
+          </div>
+        </div>
+      <% elsif type == 'alert' %>
+        <div class="flash-messages-container">
+          <div class="alert alert-danger hide-flash" role="alert" data-flash-type="alert">
+            <%= msg %>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+
+    <% if user_signed_in? %>
+      <%= button_to "Log out", destroy_user_session_path, :method => :delete %>
+    <% end %>
+    
     <%= yield %>
   </body>
 </html>

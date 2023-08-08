@@ -1,0 +1,9 @@
+<section class='container vh-100 vw-100'>
+  <div class='splash-logo mx-auto position-absolute bottom-50 start-0 end-0'>
+    <%= image_tag('logo.png') %>
+  </div>
+  <div class='mb-4 d-flex flex-column gap-1 position-absolute bottom-0 start-0 end-0 px-3'>
+    <%= link_to 'LOG IN', new_user_session_path, class: 'btn btn-splash btn-primary btn-login w-100' %>
+    <%= link_to 'SIGN UP', new_user_registration_path, class: 'btn btn-splash w-100' %>
+  </div>
+</section>

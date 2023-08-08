@@ -1,5 +1,6 @@
 @import "bootstrap";
 @import "rails_bootstrap_forms";
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap');
 
 :root {
   --main: #3778c2;
@@ -15,10 +16,80 @@ body {
 }
 
 body {
-  font-family: Georgia, sans-serif;
+  font-family: 'Montserrat', sans-serif;
+  color: var(--text);
 }
 
 a {
   text-decoration: none;
-  color: black;
+  color: var(--text);
+}
+
+.splash-logo {
+  width: fit-content;
+}
+
+.btn-splash {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+
+.btn-login {
+  background-color: var(--main);
+}
+
+.nav-bar {
+  height: 3.5rem;
+  background-color: var(--main);
+  color: white;
+}
+
+.login-form {
+  div {
+    margin-bottom: 0 !important;
+
+    input {
+      padding-top: 0.75rem;
+      padding-bottom: 0.75rem;
+      border-top: 0;
+      border-radius: 0%;
+    }
+  }
+
+  div:first-of-type {
+    input {
+      border-top: 1px solid #ced4da; /* Replace with the desired border color */
+    }
+  }
+}
+
+.flash-messages-container {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 1rem;
+  z-index: 1000; /* Adjust the z-index as needed */
+  pointer-events: none; /* Prevent interaction with messages */
+}
+
+[data-flash-type] {
+  max-width: 400px; /* Set a maximum width for better readability */
+  display: block;
+  margin: 0 auto; /* Center the flash messages within the container */
+}
+
+.hide-flash {
+  animation: hideFlash 6s forwards;
+}
+
+@keyframes hideFlash {
+  to {
+    display: none;
+    opacity: 0;
+  }
 }
