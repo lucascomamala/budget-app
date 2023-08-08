@@ -12,21 +12,19 @@
   </head>
 
   <body>
-    <% flash.each do |type, msg| %>
-      <% if type == 'notice' %>
-        <div class="flash-messages-container">
+    <div class="flash-messages-container">
+      <% flash.each do |type, msg| %>
+        <% if type == 'notice' %>
           <div class="alert alert-success hide-flash" role="alert" data-flash-type="notice">
             <%= msg %>
           </div>
-        </div>
-      <% elsif type == 'alert' %>
-        <div class="flash-messages-container">
+        <% elsif type == 'alert' %>
           <div class="alert alert-danger hide-flash" role="alert" data-flash-type="alert">
             <%= msg %>
           </div>
-        </div>
+        <% end %>
       <% end %>
-    <% end %>
+    </div>
 
     <% if user_signed_in? %>
       <%= button_to "Log out", destroy_user_session_path, :method => :delete %>
