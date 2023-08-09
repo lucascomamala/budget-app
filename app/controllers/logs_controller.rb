@@ -3,11 +3,14 @@ class LogsController < ApplicationController
 
   # GET /logs
   def index
-    @logs = Log.all
+    @group = Group.find(params[:group_id])
+    @logs = @group.logs
   end
 
   # GET /logs/1
-  def show; end
+  def show
+    @group = Group.find(params[:group_id])
+  end
 
   # GET /logs/new
   def new
@@ -15,7 +18,9 @@ class LogsController < ApplicationController
   end
 
   # GET /logs/1/edit
-  def edit; end
+  def edit
+    @group = Group.find(params[:group_id])
+  end
 
   # POST /logs
   def create
@@ -29,8 +34,9 @@ class LogsController < ApplicationController
 
   # PATCH/PUT /logs/1
   def update
+    @group = Group.find(params[:group_id])
     if @log.update(log_params)
-      redirect_to log_url(@log), notice: 'Log was successfully updated.'
+      redirect_to group_log_url(@group, @log), notice: 'Log was successfully updated.'
     else
       render :edit, status: :unprocessable_entity
     end

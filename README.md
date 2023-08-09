@@ -137,6 +137,8 @@ If you like this project give this repo a star and reach out on our social media
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
+Icons by [https://www.flaticon.com/authors/manshagraphics](manshagraphics at flaticon).
+
 I would like to thank the Microverse team.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
