@@ -1,12 +1,19 @@
-<h1>Logs</h1>
+<nav class="nav-bar d-flex justify-content-between align-items-center">
+  <span id="menu-button" class="material-symbols-outlined ms-2"><%= link_to 'menu', root_path, class: 'text-white' %></span>
+  <span class='text-uppercase'><%= @group.name %></span>
+  <span id="logout-button" class="material-symbols-outlined me-2"><%= link_to "logout", destroy_user_session_path, data: { "turbo-method": :delete }, class: 'text-white' %></span>
+</nav>
 
-<div id="logs">
-  <% @logs.each do |log| %>
+<main id="logs" class="container-md mt-3">
+  <span class="fs-1">Total: $<%= @logs.sum(:amount) %></span>
+  <% @logs.each_with_index do |log, idx| %>
     <%= render log %>
-    <p>
-      <%= link_to "Show this log", group_log_path(@group.id, log) %>
-    </p>
+    
+   
   <% end %>
-</div>
+</main>
 
-<%= link_to "New log", new_group_log_path %>
+
+<div class="fixed-bottom">
+  <%= link_to "ADD TRANSACTION", new_group_log_path, class: "btn btn-new text-white rounded-0 d-flex align-items-center justify-content-center" %>
+</div>
