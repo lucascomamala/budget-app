@@ -1,12 +1,13 @@
-<%= link_to group, id:"group#{group.id}-link" do %>
+<%= link_to group_logs_path(group.id), id:"group#{group.id}-link" do %>
 <div id="<%= dom_id group %>" class="row ms-1 my-3 align-items-center">
 
   <div class="col">
     <%= image_tag(group.icon, size: '80x80') rescue image_tag('icons/default.png', size: '64x64') %>
   </div>
 
-  <div class="col-6 text-start fw-bold">
-    <%= group.name %>
+  <div class="col-6 text-start d-flex flex-column">
+    <span class='fs-3 fw-bold'><%= group.name %></span>
+    <span class='fw-light'><%= group.logs.count %></span>
   </div>
 
   <div class="col text-end">

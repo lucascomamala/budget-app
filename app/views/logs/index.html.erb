@@ -4,7 +4,7 @@
   <% @logs.each do |log| %>
     <%= render log %>
     <p>
-      <%= link_to "Show this log", log %>
+      <%= link_to "Show this log", group_log_path(@group.id, log) %>
     </p>
   <% end %>
 </div>
