@@ -1,14 +1,19 @@
 <nav class="nav-bar d-flex justify-content-between align-items-center">
   <span id="back-button" class="material-symbols-outlined ms-2">menu</span>
   <span>CATEGORIES</span>
-  <span id="next-button" class="material-symbols-outlined me-2"><%= link_to "logout", destroy_user_session_path, data: { "turbo-method": :delete }, class: 'text-white' %></span>
+  <span id="logout-button" class="material-symbols-outlined me-2"><%= link_to "logout", destroy_user_session_path, data: { "turbo-method": :delete }, class: 'text-white' %></span>
 </nav>
 
-<main id="groups" class="mt-5">
-  <% @groups.each do |group| %>
+<main id="groups" class="container-md ps-0">
+  <% @groups.each_with_index do |group, idx| %>
     <%= render group %>
     
+    <% if idx < @groups.length - 1 %>
+      <hr />
+    <% end %>
   <% end %>
 </main>
 
-<%= link_to "New group", new_group_path %>
+<div class="fixed-bottom text-center p-3">
+  <%= link_to "New group", new_group_path, class: "btn btn-new btn-primary" %>
+</div>

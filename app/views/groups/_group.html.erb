@@ -1,21 +1,16 @@
-<div id="<%= dom_id group %>">
-  <p>
-    <strong>Name:</strong>
+<%= link_to group, id:"group#{group.id}-link" do %>
+<div id="<%= dom_id group %>" class="row ms-1 my-3 align-items-center">
+
+  <div class="col">
+    <%= image_tag(group.icon, size: '80x80') rescue image_tag('icons/default.png', size: '64x64') %>
+  </div>
+
+  <div class="col-6 text-start fw-bold">
     <%= group.name %>
-  </p>
+  </div>
 
-  <p>
-    <strong>Icon:</strong>
-    <%= group.icon %>
-  </p>
-
-  <p>
-    <strong>User:</strong>
-    <%= group.user_id %>
-  </p>
-
-  <p>
-    <%= link_to "Show this group", group %>
-  </p>
-
+  <div class="col text-end">
+    <span class="material-symbols-outlined">chevron_right</span>
+  </div>
 </div>
+<% end %>
