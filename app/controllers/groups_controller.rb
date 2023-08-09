@@ -13,7 +13,7 @@ class GroupsController < ApplicationController
   def create
     @group = Group.new(group_params)
     if @group.save
-      redirect_to group_url(@group), notice: 'Group was successfully created.'
+      redirect_to groups_url, notice: 'Category successfully created.'
     else
       render :new, status: :unprocessable_entity
     end
