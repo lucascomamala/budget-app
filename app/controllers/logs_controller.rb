@@ -4,7 +4,7 @@ class LogsController < ApplicationController
   # GET /logs
   def index
     @group = Group.find(params[:group_id])
-    @logs = @group.logs
+    @logs = @group.logs.order(created_at: :desc)
   end
 
   # GET /logs/1

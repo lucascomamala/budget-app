@@ -1,17 +1,24 @@
-<div id="<%= dom_id log %>">
-  <p>
-    <strong>Name:</strong>
-    <%= log.name %>
-  </p>
+<div id="<%= dom_id log %>" class="card cards my-3">
+<div class='card-body container-md'>
+  <div class='row align-items-end'>
+    <div class='col-9 fs-3'>
+      <%= log.name %>
+    </div>
+    <div class='col text-center fs-3'>
+      $<%= log.amount %>
+    </div>
+  </div>
 
-  <p>
-    <strong>Amount:</strong>
-    <%= log.amount %>
-  </p>
+  <div class='row'>
+    <div class='col p-0'>
+      <hr />
+    </div>
+  </div>
 
-  <p>
-    <strong>User:</strong>
-    <%= log.user_id %>
-  </p>
-
+  <div class='row'>
+    <div class='col fw-light'>
+      <%= log.created_at.strftime('%d %b %Y') %>
+    </div>
+  </div>
+</div>
 </div>
