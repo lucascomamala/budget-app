@@ -1,7 +1,7 @@
 <nav class="nav-bar d-flex justify-content-between align-items-center">
   <span id="back-button" class="material-symbols-outlined ms-2"><%= link_to 'arrow_back', root_path, class: 'text-white' %></span>
   <span>LOGIN</span>
-  <span id="next-button" class="me-3">NEXT</span>
+  <span id="next-button" class="me-2">NEXT</span>
 </nav>
 
 <%= bootstrap_form_for(resource, as: resource_name, url: session_path(resource_name), html: { id: 'registration-form', class: 'login-form mt-3 fw-light' }) do |f| %>
