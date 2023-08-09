@@ -1,8 +1,8 @@
 <%= render @log %>
 
 <div>
-  <%= link_to "Edit this log", edit_log_path(@log) %> |
-  <%= link_to "Back to logs", logs_path %>
+  <%= link_to "Edit this log", edit_group_log_path(@log) %> |
+  <%= link_to "Back to logs", group_logs_path %>
 
   <%= button_to "Destroy this log", @log, method: :delete %>
 </div>

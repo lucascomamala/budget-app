@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     root 'groups#index', as: :authenticated_user
   end
 
-  resources :groups
-  resources :logs
+  resources :groups do
+    resources :logs
+  end
 end
