@@ -112,6 +112,10 @@ a {
 }
 
 .btn-new {
+  border: white solid 2px;
+  width: 100%;
+  height: 80px;
+  outline: var(--second) solid 20px;
   --bs-btn-color: var(--bs-white);
   --bs-btn-bg: var(--second);
   --bs-btn-border-color: white;
@@ -123,13 +127,6 @@ a {
   --bs-btn-active-color: var(--bs-btn-hover-color);
   --bs-btn-active-bg: #{shade-color($second, 20%)};
   --bs-btn-active-border-color: white;
-}
-
-.btn-new {
-  border: white solid 2px;
-  width: 100%;
-  height: 80px;
-  outline: var(--second) solid 20px;  
 }
 
 hr {
